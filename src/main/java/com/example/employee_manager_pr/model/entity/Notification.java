@@ -1,13 +1,9 @@
 package com.example.employee_manager_pr.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 @Entity
-@Table(name = "notification")
+@Table(name="notification")
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,9 +30,6 @@ public class Notification {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    public Notification() {
-    }
-
     public Notification(int id, String title, int type, String description, int status, String createdBy, Date createdDate, String lastModifiedBy, Date lastModifiedDate, Employee employee) {
         this.id = id;
         this.title = title;
@@ -48,6 +41,9 @@ public class Notification {
         this.lastModifiedBy = lastModifiedBy;
         this.lastModifiedDate = lastModifiedDate;
         this.employee = employee;
+    }
+
+    public Notification() {
     }
 
     public int getId() {
